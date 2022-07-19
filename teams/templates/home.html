@@ -1,0 +1,255 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<html>
+    <head>
+        <title>Navbar</title>
+    </head>
+    
+    <style>
+          body, html {
+      height: 100%;
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    .bg-image {
+      /* The image used */
+      background-image: url("https://d1e00ek4ebabms.cloudfront.net/production/a646c9b7-13a5-4420-ab42-13ac0cf8a158.jpg");
+      
+      /* Add the blur effect */
+      filter: blur(8px);
+      -webkit-filter: blur(8px);
+      
+      /* Full height */
+      height: 100%; 
+      
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      animation-name: animate;
+      animation-direction: alternate-reverse;
+      animation-duration: 10s;
+      animation-fill-mode: forwards;
+      animation-iteration-count: infinite;
+      animation-play-state: running;
+      animation-timing-function: ease-in-out;
+    }
+
+    @keyframes animate{
+      0%{
+        background-image: url("https://d1e00ek4ebabms.cloudfront.net/production/a646c9b7-13a5-4420-ab42-13ac0cf8a158.jpg");
+      }
+      20%{
+        background-image: url("https://resources.pulse.icc-cricket.com/photo-resources/2022/03/12/f89e4c73-7795-4e61-8148-72c015afc6f5/smitri100.jpg?width=845&height=475");
+      }
+      40%{
+        background-image: url("https://images.indianexpress.com/2022/02/raina-csk.jpg");
+      }
+      60%{
+        background-image: url("https://www.crictracker.com/wp-content/uploads/2021/03/Hardik-Pandya-1.jpg");
+      }
+      80%{
+        background-image: url("https://circleofcricket.com/post_image/post_image_0597e1f.jpg");
+      }
+      100%{
+        background-image: url("https://resources.pulse.icc-cricket.com/ICC/photo/2018/05/18/5474ff9e-192b-493d-9410-687d7edff768/AB-de-Villiers.jpg");
+      }
+
+    }
+   
+    /* Position text in the middle of the page/image */
+    .bg-text {
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+      color: white;
+      font-weight: bold;
+      border: 3px solid #f1f1f1;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      width: 80%;
+      padding: 40px;
+      text-align: center;
+    }
+        .card {
+  box-shadow: 0 1rem 2rem hsl(0 0% 0% / 20%);
+  
+  background: hsl(0 0% 100%);
+  color: hsl(200 50% 20%);
+  line-height: 1.5;
+  font-size: 1.5rem;
+  font-weight: 300;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  place-items: center;
+  text-align: center;
+  padding: 4ch;
+  border-radius: 2ch;
+  border: 1px solid hsl(0 0% 83%);
+}
+ 
+.better {
+  box-shadow: 0 2.5rem 2rem -2rem hsl(200 50% 20% / 40%);
+}
+.dashed-border {
+
+  margin: auto;
+  margin-top: 50;
+  margin-bottom: 50;
+  border: 1px dashed #24252A;
+}
+
+
+    </style>
+        <div class="bg-image"></div>
+    
+        <div class="bg-text">
+          <h1 style="font-size:50px">Welcome To <span style="color: #66d7eb;">Cricbase</span></h1>
+          <h2>Click below 👇 to Explore more</h2>
+          <a href="#below" class="btn" style="color: white; background-color: rgba(0,136,169,1); margin-top: 20px; margin-left: 10px; border-radius: 50px; padding: 9px 25px;"type="submit" id="header-links"> Explore </a>
+        </div>
+        <section id="below">    
+          <style>
+            @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+              .h1 {
+                  text-align: center;
+                  font-family: "Open sans", sans-serif;
+                  font-weight: 600;
+                  font-size: 40px;
+                  text-decoration: none;
+              
+              }
+              
+              .i1{
+                  float:right;
+                  margin-left: 60px;
+                  transition: 0.7s;
+                }
+              
+              .i1:hover{
+                  transform: scale(1.05);
+                }
+              
+              .i2{
+                  float:left;
+                  margin-right: 60px;
+                  transition: 0.7s;
+              }
+              
+              .i2:hover{
+                  transform: scale(1.05);
+                }
+              
+              
+              .p1{
+                  font-size: 30px;
+                  font-family: 'Slabo 27px', serif;
+                  padding: 20px;
+                }
+          
+                .wrapper{
+                  display: flex;
+                  justify-content: center;
+                  display: flex;
+                }
+                .wrapper .static-txt{
+                  color: #fff;
+                  font-size: 60px;
+                  font-weight: 400;
+                }
+                .wrapper .dynamic-txts{
+                  margin-left: 15px;
+                  height: 90px;
+                  line-height: 90px;
+                  overflow: hidden;
+                }
+                .dynamic-txts li{
+                  list-style: none;
+                  color: #24252A;
+                  font-size: 60px;
+                  font-weight: 500;
+                  position: relative;
+                  top: 0;
+                  animation: slide 12s steps(1) infinite;
+                }
+                @keyframes slide {
+                  100%{
+                    top: -360px;
+                  }
+                }
+                .dynamic-txts li span{
+                  position: relative;
+                  margin: 5px 0;
+                  line-height: 80px;
+                }
+                .dynamic-txts li span::after{
+                  content: "";
+                  position: absolute;
+                  left: 0;
+                  height: 100%;
+                  width: 100%;
+                  background: rgb(231, 231, 231);
+                  border-left: 2px solid #24252A;
+                  animation: typing 3s steps(10) infinite;
+                }
+                @keyframes typing {
+                  40%, 60%{
+                    left: calc(100% + 30px);
+                  }
+                  100%{
+                    left: 0;
+                  }
+                }
+                
+          </style><br>
+          <div class="dashed-border"style="margin-top: 5;"></div>
+          <div class="wrapper">
+            <ul class="dynamic-txts">
+              <li><span>Welcome to Cricbase</span></li>
+            </ul>
+          </div>
+          
+          <br><br><br><br><br>
+          <img class = "i2" src = "https://northernspinal.com.au/wp-content/uploads/2018/01/cricket-injuries-1200x565.jpg" width="35%" alt=""style="margin-left:20px;">
+          <a href="http://127.0.0.1:8000/newsheading"style="color:black;margin-left:200;font-size: 60px;">News</a>
+          <p class="p1"style="margin-left:575px">Get latest cricket news from our site.📰</p>
+          <br><br><br><br><br><br><br><br><br>
+          <div class="dashed-border"></div>
+
+          <img class = "i1" src = "https://www.themarketingsage.com/wp-content/uploads/2015/08/about-me-leon-severan-we-buy-houses.jpg" width="35%" alt=""style="margin-right:20px;"><br><br>
+          <a href="http://127.0.0.1:8000/about"style="color:black;margin-left:200;font-size: 60px;">About</a>
+          <p class="p1"style="margin-left:135px">To know about us🙄</p>
+          <br><br><br><br><br><br><br><br><br>
+          <div class="dashed-border"></div>
+
+
+          <img class = "i2" src = "https://blog.hubspot.com/hubfs/google-quiz.jpg" width="35%" alt=""style="margin-left:20px;"><br><br>
+          <a href="http://127.0.0.1:8000/quiz"style="color:black;margin-left:200;font-size: 60px;">Quiz</a>
+          <p class="p1"style="margin-left:675px">Play quiz with us🧠</p>
+          <br><br><br><br><br><br><br><br><br>
+          <div class="dashed-border"></div>
+
+
+          <img class = "i1" src = "https://dynaimage.cdn.cnn.com/cnn/q_auto,h_600/https%3A%2F%2Fcdn.cnn.com%2Fcnnnext%2Fdam%2Fassets%2F131226113308-cricket-gallery-2.jpg" width="35%" alt=""style="margin-right:20px;"><br><br>
+          <a href="http://127.0.0.1:8000/gallery"style="color:black;margin-left:200;font-size: 60px;">Gallery</a>
+          <p class="p1"style="margin-left:75px">Sit back and relax the memories☺</p>
+          <br><br><br><br><br><br><br><br><br>
+          <div class="dashed-border"style="  margin-bottom: 2;"></div>
+
+
+        </ul> </a>
+        </section>
+</html>
+{% endblock %}
+
+https://play-lh.googleusercontent.com/CC9gYlJbBCSFq8vKR1f_62oG17-3m7LEQ_GGZSoy_Kk-_uiDwBHX4eVzHkeI3i9Ztg

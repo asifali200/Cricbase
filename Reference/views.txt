@@ -1,0 +1,55 @@
+from .models import Events,Venue
+from .models import News, Comment
+from .forms import  CommentForm
+from .models import Player
+from .models import League
+from .models import Team
+from .models import SeriesName
+def league(request):
+    league_list = League.objects.all()
+    return render(request,'League.html',{'league_list': league_list})
+
+def team(request):
+    team_list = Team.objects.all()
+    return render(request,'League.html',{'team_list': team_list})
+
+def player(request):
+    player_list = Player.objects.all()
+    return render(request,'player.html',{'player_list': player_list})
+
+def series_events(request):
+    series = SeriesName.objects.all()
+    return render(request,'Series.html',{'series': series})
+
+
+"""def LikeView(request, pk):
+    post = get_object_or_404(Post, id=request.POST.get('post_id'))
+    post.likes.add(request.user)
+    return HttpResponseRedirect(reverse('article_detail', args=[str(pk)]))"""
+
+def post_detail(request, year, month, day, post):
+    post = get_object_or_404(News, slug=post,status='published',publish__year=year,publish__month=month,publish__day=day)
+    comments = post.comments.filter(active=True)
+    new_comment = None
+    if request.method == 'POST':
+        comment_form = CommentForm(data=request.POST)
+        if comment_form.is_valid():       
+            new_comment = comment_form.save(commit=False)
+            new_comment.post = post
+            new_comment.save()
+    else:
+        comment_form = CommentForm()                   
+    return render(request,'blog/post/detail.html',{'post': post,'comments': comments,'new_comment': new_comment,'comment_form': comment_form})
+
+
+def all_events(request):
+    event_list = Events.objects.all()
+    return render(request,'event_list.html',{'event_list': event_list})
+
+def list_venues(request): #list_venues class name
+    venue_list = Venue.objects.all() #Venue object name
+    return render(request,'venue.html',{'venue_list': venue_list}) #{'variable': value}
+
+def show_venue(request, venue_id):
+    venue = Venue.objects.get(pk=venue_id)
+    return render(request,'show_venue.html',{'venue': venue})

@@ -1,0 +1,216 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+  text-align: center;
+  padding: 32px;
+}
+
+.row {
+  display: -ms-flexbox; /* IE 10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE 10 */
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+/* Create two equal columns that sits next to each other */
+.column {
+  -ms-flex: 50%; /* IE 10 */
+  flex: 50%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+}
+
+/* Style the buttons */
+.btn {
+  border: none;
+  outline: none;
+  padding: 10px 16px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+  font-size: 18px;
+  justify-content: center;
+}
+
+.btn:hover {
+  background-color: #ddd;
+}
+
+.btn.active {
+  background-color: #666;
+  color: white;
+  justify-content: center;
+}
+
+.wrapper{
+    display: flex;
+    justify-content: center;
+    display: flex;
+  }
+  .wrapper .static-txt{
+    color: #fff;
+    font-size: 60px;
+    font-weight: 400;
+  }
+  .wrapper .dynamic-txts{
+    margin-left: 15px;
+    height: 90px;
+    line-height: 90px;
+    overflow: hidden;
+  }
+  .dynamic-txts li{
+    list-style: none;
+    color: #24252A;
+    font-size: 60px;
+    font-weight: 500;
+    position: relative;
+    top: 0;
+    animation: slide 12s steps(1) infinite;
+  }
+  @keyframes slide {
+    100%{
+      top: -360px;
+    }
+  }
+  .dynamic-txts li span{
+    position: relative;
+    margin: 5px 0;
+    line-height: 80px;
+  }
+  .dynamic-txts li span::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgb(231, 231, 231);
+    border-left: 2px solid #24252A;
+    animation: typing 3s steps(10) infinite;
+  }
+  @keyframes typing {
+    40%, 60%{
+      left: calc(100% + 30px);
+    }
+    100%{
+      left: 0;
+    }
+  }
+
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header" id="myHeader">
+    <div class="wrapper">
+        <ul class="dynamic-txts">
+          <li><span>Gallery</span></li>
+        </ul>
+    </div>
+  <button class="btn" onclick="one()">1</button>
+  <button class="btn active" onclick="two()">2</button>
+  <button class="btn" onclick="four()">4</button>
+</div>
+
+<!-- Photo Grid -->
+<div class="row"> 
+  <div class="column">
+    <img src="https://www.teahub.io/photos/full/53-533576_sachin-tendulkar-hd-wallpapers-images-31654-sachin-tendulkar.jpg" style="width:100%;">
+    <img src="https://files.oyebesmartest.com/uploads/preview/cricketerv8k.jpg" style="width:100%">
+    <img src="https://pagalstatus.com/wp-content/webpc-passthru.php?src=https://pagalstatus.com/wp-content/uploads/2021/03/158710414_159629449323691_8374193922453349539_o-1-843x1024.jpg&nocache=1" style="width:100%">
+    <img src="https://wallpapercave.com/wp/wp1894252.jpg" style="width:100%">
+    <img src="https://www.teahub.io/photos/full/214-2143187_kane-williamson-new-zealand-cricketer-in-world-cup.jpg" style="width:100%">
+    <img src="https://media.gettyimages.com/photos/joe-root-of-england-poses-during-the-201718-england-ashes-squad-at-picture-id868880884?s=612x612" style="width:100%">
+    <img src="https://wallpapercave.com/wp/wp4789781.jpg" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="https://cdn.wallpapersafari.com/77/74/TGeBC9.jpg" style="width:100%">
+    <img src="https://files.oyebesmartest.com/uploads/preview/cricketerv8k.jpg" style="width:100%">
+    <img src="https://wallpapercave.com/wp/wp4048921.jpg" style="width:100%">
+    <img src="https://i.pinimg.com/736x/67/12/d7/6712d7c35121b45d14656bee88699d25.jpg" style="width:100%">
+    <img src="https://wallpapercave.com/wp/wp6704657.jpg" style="width:100%">
+    <img src="https://i.pinimg.com/originals/14/b9/db/14b9db8d57364ea90b18ec19b482f086.jpg" style="width:100%">
+    <img src="https://wallpaperaccess.com/full/3450737.jpg" style="width:100%">
+  </div>  
+  <div class="column">
+    <img src="https://img1.hscicdn.com/image/upload/f_auto/lsci/db/PICTURES/CMS/335700/335791.jpg" style="width:100%">
+    <img src="https://media.gettyimages.com/photos/ellyse-perry-of-australia-celebrates-her-century-during-day-three-of-picture-id872712422?s=612x612" style="width:100%">
+    <img src="https://www.mykhel.com/img/2018/11/harmanpreet-kaur-batting-wt20-vs-nz-1541793523.jpg" style="width:100%">
+    <img src="https://www.deccanherald.com/sites/dh/files/article_images/2020/01/22/file73yiw6j4qx4o0u2peo9-1579678454.jpg" style="width:100%">
+    <img src="https://img.etimg.com/thumb/width-600,height-450,msid-84289257,imgsize-64968/catch-of-the-year-harleen-deol-takes-a-stunner-to-dismiss-amy-jones-during-england-vs-india-t20i.jpg" style="width:100%">
+    <img src="https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/09/27/12/sarah-taylor.jpg?width=1200" style="width:100%">
+    <img src="https://content.api.news/v3/images/bin/b2ad68bcc8f64f99bbda404e49fba399?width=1280" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="https://www.mykhel.com/img/2018/11/rohitsharma-cropped_fg3ec7qrkgv1b6j0scq9o1gr.jpg" style="width:100%">
+    <img src="https://w0.peakpx.com/wallpaper/888/292/HD-wallpaper-bumrah-cricket-mumbai-indians.jpg" style="width:100%">
+    <img src="https://www.freewalldownload.com/yuvraj-singh/yuvraj-singh-best-latest-hd-images.jpg" style="width:100%">
+    <img src="https://files.oyebesmartest.com/uploads/preview/cricketerv8k.jpg" style="width:100%">
+    <img src="https://cdn.wallpapersafari.com/87/28/6QFAnz.jpg" style="width:100%">
+    <img src="https://cricketaddictor.com/wp-content/uploads/2021/06/Ravindra-Jadeja-2.jpg" style="width:100%">
+    <img src="https://www.mykhel.com/img/2018/01/sureshraina-1517120265.jpg" style="width:100%">
+  </div>
+</div>
+<br>
+
+<script>
+// Get the elements with class="column"
+var elements = document.getElementsByClassName("column");
+
+// Declare a loop variable
+var i;
+
+// Full-width images
+function one() {
+    for (i = 0; i < elements.length; i++) {
+    elements[i].style.msFlex = "100%";  // IE10
+    elements[i].style.flex = "100%";
+  }
+}
+
+// Two images side by side
+function two() {
+  for (i = 0; i < elements.length; i++) {
+    elements[i].style.msFlex = "50%";  // IE10
+    elements[i].style.flex = "50%";
+  }
+}
+
+// Four images side by side
+function four() {
+  for (i = 0; i < elements.length; i++) {
+    elements[i].style.msFlex = "25%";  // IE10
+    elements[i].style.flex = "25%";
+  }
+}
+
+// Add active class to the current button (highlight it)
+var header = document.getElementById("myHeader");
+var btns = header.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+</script>
+
+{% endblock %}

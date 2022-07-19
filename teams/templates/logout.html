@@ -1,0 +1,90 @@
+
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+{% block content %}
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="{% static 'css/Logout.css' %}">
+<style>
+    .form{
+        background-color: #15172b;
+        border-radius: 20px;
+        box-sizing: border-box;
+        height:200px;
+        padding: 20px;
+        width: 480px;
+    }
+    .submit1{
+        background-color: #08d;
+        border-radius: 12px;
+        border: 0;
+        box-sizing: border-box;
+        color: #eee;
+        cursor: pointer;
+        font-size: 18px;
+        height: 50px;
+        margin-top: 38px;
+        /*outline: 0;*/
+        text-align: center;
+        width: 200;
+        display: block;
+        position: fixed;
+        right: 51%;
+        transition: 0.7s;
+      }
+
+      .submit1:active {
+        background-color: #06b;
+      }
+
+      .submit1:hover {
+        transform: scale(1.1);
+        }
+  
+      
+    .submit2 {
+        background-color: #06b;
+      background-color: #08d;
+      border-radius: 12px;
+      border: 0;
+      box-sizing: border-box;
+      color: #eee;
+      cursor: pointer;
+      font-size: 18px;
+      height: 50px;
+      margin-top: 38px;
+      /*outline: 0;*/
+      text-align: center;
+      width: 200;
+      display: block;
+      margin: -2;
+      position: fixed;
+      left: 51%;
+      transition: 0.7s;
+    }
+    
+    .submit2:active {
+      background-color: #06b;
+    }
+
+    .submit2:hover {
+      transform: scale(1.1);
+      }
+
+    h1{
+        color:white;
+    }
+</style>
+    <div class="form">
+        <h1>You have been Logged out</h1>
+        <a href="http://127.0.0.1:8000/"><button type="submit" class="submit1">Home</button></a><br><br>
+        <a href="http://127.0.0.1:8000/login"><button type="submit" class="submit2">Login</button></a><br><br>
+    </div>
+{% endblock %}

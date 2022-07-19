@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    .b {
+        white-space: nowrap; 
+        width: 1500px; 
+        height:100px;
+        overflow: hidden;
+        text-overflow: ellipsis; 
+        border: 2px solid #000000;
+        margin:auto;
+        background-color: #24252A;
+      }
+</style><br><br>
+
+{% for player in team %}
+    <div class="b"><br>
+        <a href="{% url 'player' player.id %}" style="font-size: 30px;text-align: center;">{{ player }}</a>
+    </div><br>
+    {% endfor %}<br><br>
+
+{% endblock %}

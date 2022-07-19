@@ -1,0 +1,206 @@
+
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><!--Home Button-->
+<link rel="stylesheet" href="{% static 'css/RegistrationForm.css' %}">
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> 
+
+
+
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+body {
+    align-items: center;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .form {
+    background-color: #15172b;
+    border-radius: 20px;
+    box-sizing: border-box;
+    height: 570px;
+    padding: 20px;
+    width: 320px;
+  }
+  
+  .title {
+    color: #eee;
+    font-family: "Open sans", sans-serif;
+    font-size: 36px;
+    font-weight: 300;
+    margin-top: 30px;
+  }
+  
+  .subtitle {
+    color: #eee;
+    font-family: "Open sans", sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    margin-top: 10px;
+  }
+  
+  .input-container {
+    height: 50px;
+    position: relative;
+    width: 100%;
+  }
+  
+  .ic1 {
+    margin-top: 40px;
+  }
+  
+  .ic2 {
+    margin-top: 30px;
+  }
+  
+  .input {
+    background-color: #303245;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    font-size: 18px;
+    height: 100%;
+    outline: 0;
+    padding: 4px 20px 0;
+    width: 100%;
+  }
+  
+  .cut {
+    background-color: #15172b;
+    border-radius: 10px;
+    height: 20px;
+    left: 20px;
+    position: absolute;
+    top: -20px;
+    transform: translateY(0);
+    transition: transform 200ms;
+    width: 76px;
+  }
+  
+  .cut-short {
+    width: 50px;
+  }
+
+  .cut-short-short {
+    width: 70px;
+  }
+  
+  .input:focus ~ .cut,
+  .input:not(:placeholder-shown) ~ .cut {
+    transform: translateY(8px);
+  }
+  
+  .placeholder {
+    color: #65657b;
+    font-family: sans-serif;
+    left: 20px;
+    line-height: 14px;
+    pointer-events: none;
+    position: absolute;
+    transform-origin: 0 50%;
+    transition: transform 200ms, color 200ms;
+    top: 20px;
+  }
+  
+  .input:focus ~ .placeholder,
+  .input:not(:placeholder-shown) ~ .placeholder {
+    transform: translateY(-30px) translateX(10px) scale(0.75);
+  }
+  
+  .input:not(:placeholder-shown) ~ .placeholder {
+    color: #808097;
+  }
+  
+  .input:focus ~ .placeholder {
+    color: #dc2f55;
+  }
+  
+  .submit {
+    background-color: #08d;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    cursor: pointer;
+    font-size: 18px;
+    height: 50px;
+    margin-top: 38px;
+    /*outline: 0;*/
+    text-align: center;
+    width: 100%;
+  }
+  
+  .submit:active {
+    background-color: #06b;
+  }
+
+  .btn1 {
+    background-color: #15172b;
+    border: none;
+    color: #eee;
+    padding: 0px 0px;
+    font-size: 25px;
+    cursor: pointer;
+    position: relative;
+    right: -307px;/*-300*/
+    top: -281px;/*-228*/
+}
+    </style>
+
+      <a href ="http://127.0.0.1:8000/"><button class="btn1"><i class="fa fa-home"></i></button></a>
+      <form action="http://127.0.0.1:8000/register" method="POST">
+      <input type="hidden" name="csrfmiddlewaretoken" value="o3vYNZJPrbViJM4voTbovGZF779bzH4hbA6r1LjsIEbZ4EiaafeXuYLLsOV6teGr">
+      {% csrf_token %}
+      <div class="form">
+        <div class="title">Welcome</div>
+        <div class="subtitle">Let's create your account!</div>
+        <div class="input-container ic1">
+          <div id="div_id_username" class="form-group">
+            <label for="id_username" class=" requiredField" style="color:white; font-family: "Open sans", sans-serif; font-size: 16px; font-weight: 300; margin-top: 10px;">Username</label>
+            <div>
+              <input type="text" name="username" placeholder="Username" maxlength="150" autofocus="" class="textinput textInput form-control" required="" id="id_username">
+            </div>
+          </div>
+        </div>
+        <div class="input-container ic2">
+          <div id="div_id_email" class="form-group">
+            <label for="id_email" class=" requiredField" style="color:white; font-family: "Open sans", sans-serif; font-size: 16px; font-weight: 300; margin-top: 10px;">Email</label>
+            <div>
+              <input type="email" name="email" placeholder="Email" class="textinput textInput form-control" required="" id="id_email">
+            </div>
+          </div>
+        </div>
+        <div class="input-container ic2">
+          <div id="div_id_password1" class="form-group">
+            <label for="id_password1" class=" requiredField" style="color:white">Password</label>
+            <div>                  
+              <input type="password" name="password1" placeholder="Password" autocomplete="new-password" class="textinput textInput form-control" required="" id="id_password1">
+            </div> 
+          </div>
+        </div>
+  <div class="input-container ic2">
+    <div id="div_id_password2" class="form-group">
+      <label for="id_password2" class=" requiredField" style="color:white">Password confirmation</label>
+      <div>
+        <input type="password" name="password2" placeholder="Password Confirmation" autocomplete="new-password" class="textinput textInput form-control" required="" id="id_password2">
+      </div>
+    </div>
+  </div>
+  <button type="text" class="submit">Submit</button>
+</div>
+<div class="form-group">
+  <small class="text-muted ml-3">Already have an account? <a href="http://127.0.0.1:8000/login">Sign In</a></small>
+</div>
+</form>
+{% endblock %}

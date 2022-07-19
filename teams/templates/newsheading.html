@@ -1,0 +1,68 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<html>
+    <style>
+
+        .cb-arcv-yr, .cb-brdr-thin-btm, .cb-lst-itm, .cb-scrd-itms, .cb-srs-lst-itm, .cb-tms-itm .cb-mtch-lst {
+            border-bottom: 1px solid #ecebeb;
+        }
+        .cb-pos-rel {
+            position: relative;
+        }
+        .cb-lst-itm-lg {
+            padding: 40px 0;
+        }
+        
+        .cb-col {
+            display: inline-block;
+            box-sizing: border-box;
+            min-height: 1px;
+        }
+        .cb-col-100 {
+            width: 100%;
+        }
+        .cb-nws-time, .cb-nws-intr{
+            margin-left:250px;
+            
+        }
+
+
+        </style>
+
+
+
+
+
+
+
+{% for news in newsheading %}
+<div class="cb-col cb-col-100 cb-lst-itm cb-pos-rel cb-lst-itm-lg">
+    <div class="cb-col cb-col-33" itemscope="" itemtype="https://schema.org/ImageObject" itemprop="image"><meta itemprop="width" content="205"> 
+        <a target="_self" href="{% url 'news' news.id %}">
+            <img height="152" width="205" itemprop="image" class="cb-lst-img" src="{{news.News_pic.url}}" style="position:relative; left:200px; bottom:55px;">
+        </a>
+    </div>
+    <div class="cb-col-67 cb-nws-lst-rt cb-col cb-col-text-container">
+        <div class="cb-nws-time">
+            <h5>{{ news.tour }}</h5>
+        </div>
+        <h2 class="cb-nws-hdln cb-font-18 line-ht24" style="margin-left:250px;">
+            <a target="_self" class="cb-nws-hdln-ancr text-hvr-underline" href="{% url 'news' news.id %}" style="color: #0d6efd; margin-right: 30px;"><h2>{{ news.newsheading }}</h2></a>
+        </h2>
+        <div class="cb-nws-intr" style="text-align: center; "><h6>{{ news.summary }}</h6></div>
+        <div><span class="cb-nws-time" style="text-align: center;">{{news.created}}</span>
+        </div>
+    </div>
+</div><hr>
+{% endfor %}
+</html>
+
+{% endblock %}
+
+
+
+
+

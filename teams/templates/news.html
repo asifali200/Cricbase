@@ -1,0 +1,35 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+<br><br>
+<Style>
+    .news{
+        margin-left:100px;
+        margin-right:100px;
+        margin-top:50px;
+        font-size: 30px;
+    }
+
+</Style>
+<h1 style="text-align:center">{{news.newsheading}}</h1><br><br>
+<h3 style="margin-left:100px">{{news.created}}</h3><br>
+<div class="news">{{news.news | safe}}<br><br>
+<hr><br>
+
+<h1>Comments...</h1>
+{%if not news.comments.all %}
+No Comments Yet...
+{% else %}
+<br><a href="" style = "color: var(--bs-link-color);">Add Comment</a><br><br>
+{% for comment in news.comments.all %}
+<strong>
+{{ comment.cname }} - {{ comment.cmted }}
+</strong><br>
+{{ comment.box }}
+{% endfor %}
+{% endif %}
+
+</div>
+
+{% endblock %}

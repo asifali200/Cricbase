@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+    .h1 {
+        text-align: center;
+        font-family: "Open sans", sans-serif;
+        font-weight: 600;
+        font-size: 40px;
+        text-decoration: none;
+    
+    }
+    
+    .i1{
+        float:right;
+        margin-left: 60px;
+        transition: 0.7s;
+      }
+    
+    .i1:hover{
+        transform: scale(1.05);
+      }
+    
+    .i2{
+        float:left;
+        margin-right: 60px;
+        transition: 0.7s;
+    }
+    
+    .i2:hover{
+        transform: scale(1.05);
+      }
+    
+    
+    .p1{
+        font-size: 30px;
+        font-family: 'Slabo 27px', serif;
+        padding: 20px;
+      }
+
+      .wrapper{
+        display: flex;
+        justify-content: center;
+        display: flex;
+      }
+      .wrapper .static-txt{
+        color: #fff;
+        font-size: 60px;
+        font-weight: 400;
+      }
+      .wrapper .dynamic-txts{
+        margin-left: 15px;
+        height: 90px;
+        line-height: 90px;
+        overflow: hidden;
+      }
+      .dynamic-txts li{
+        list-style: none;
+        color: #24252A;
+        font-size: 60px;
+        font-weight: 500;
+        position: relative;
+        top: 0;
+        animation: slide 12s steps(1) infinite;
+      }
+      @keyframes slide {
+        100%{
+          top: -360px;
+        }
+      }
+      .dynamic-txts li span{
+        position: relative;
+        margin: 5px 0;
+        line-height: 80px;
+      }
+      .dynamic-txts li span::after{
+        content: "";
+        position: absolute;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: rgb(231, 231, 231);
+        border-left: 2px solid #24252A;
+        animation: typing 3s steps(10) infinite;
+      }
+      @keyframes typing {
+        40%, 60%{
+          left: calc(100% + 30px);
+        }
+        100%{
+          left: 0;
+        }
+      }
+      
+</style><br>
+<div class="wrapper">
+  <ul class="dynamic-txts">
+    <li><span>About us</span></li>
+  </ul>
+</div>
+
+<br><br><br><br><br>
+<img class = "i1" src = "{% static 'images/stumps.png' %}" width="35%" alt=""style="margin-right:20px;"><br><br>
+<p class="p1">We can find many websites like this but they are very old-fashioned and has more buffering.
+    This problem may be occurred because of using very basic frameworks and not updating the website with new features.</p>
+<br><br><br><br><br><br><br><br><br>
+
+<img class = "i2" src = "{% static 'images/ball.png' %}" width="35%" alt=""style="margin-left:20px;"><br><br>
+<p class="p1">The project aim at the cricket lovers who needs proper information about the match or the player .
+    We can find many websites displaying the information you need but the problem is the information must be appropriate or exact but the information in most of the websites are fake .</p>
+<br><br><br><br><br><br><br><br><br>
+
+<img class = "i1" src = "{% static 'images/mandy.png' %}" width="35%" alt=""style="margin-right:20px;"><br><br>
+<p class="p1">This website  displays only the  true information about the player or the match score and  never spread any fake news about the players and their records , so the cricket lovers can trust our website.</p>
+<br><br><br><br><br><br><br><br><br>
+
+{% endblock %}

@@ -1,0 +1,53 @@
+
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="{% static 'css/RegistrationForm.css' %}">
+    <style>
+        #id_feedback{
+            width: 100%; 
+            height: 150;
+        } 
+    </style>
+    <body>
+        <form action="http://127.0.0.1:8000/register" method="POST">
+      <input type="hidden" name="csrfmiddlewaretoken" value="o3vYNZJPrbViJM4voTbovGZF779bzH4hbA6r1LjsIEbZ4EiaafeXuYLLsOV6teGr">
+      <div class="form">
+        {% csrf_token %}
+        <div class="title">Welcome</div>
+        <div class="subtitle">Let's create your account!</div>
+        <div class="input-container ic1">
+          <div id="div_id_username" class="form-group">
+            <label for="id_username" class=" requiredField" style="color:white; font-family: "Open sans", sans-serif; font-size: 16px; font-weight: 300; margin-top: 10px;">Username</label>
+            <div>
+              <input type="text" name="username" placeholder="Username" maxlength="150" autofocus="" class="textinput textInput form-control" required="" id="id_username">
+            </div>
+          </div>
+        </div>
+        <div class="input-container ic2">
+          <div id="div_id_email" class="form-group">
+            <label for="id_email" class=" requiredField" style="color:white; font-family: "Open sans", sans-serif; font-size: 16px; font-weight: 300; margin-top: 10px;">Email</label>
+            <div>
+              <input type="email" name="email" placeholder="Email" class="textinput textInput form-control" required="" id="id_email">
+            </div>
+          </div>
+        </div>
+        <div class="input-container ic2">
+            <div id="div_id_email" class="form-group">
+              <label for="id_feedback" class=" requiredField" style="color:white; font-family: "Open sans", sans-serif; font-size: 16px; font-weight: 300; margin-top: 10px;">Feedback</label>
+              <div>
+                <input type="text" name="feedback" placeholder="Feedback" class="textinput textInput form-control" required="" id="id_feedback">
+              </div>
+            </div>
+          </div>
+      </div>
+      </form>
+      </body>
+      {% endblock %}

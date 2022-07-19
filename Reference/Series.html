@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+        <ul>
+            {% for series in series %}
+            <a href="#"><li>{{series.seriesteam}}</li>
+            {% endfor %}
+        </ul>
+{% endblock %}

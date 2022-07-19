@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Events</h1>
+{% for venue in venue_list %} <!--venue for FOR. venue_list variable from views for list_venues-->
+<a href="{% url 'show-venue' venue.id %}">{{ venue }}</a> <!--show-venue func from urls. Venue for FOR-->
+{% endfor %}
+{% endblock %}

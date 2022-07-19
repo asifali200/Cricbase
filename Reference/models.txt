@@ -1,0 +1,91 @@
+
+class League(models.Model):
+    leaguename = models.CharField(max_length=300)
+
+    def __str__(self):
+        return self.leaguename
+
+class Country(models.Model):
+    country = models.CharField(max_length=300)
+
+    def __str__(self):
+        return str(self.country)
+
+class Team(models.Model):
+    teamname = models.CharField(max_length=300)
+    leaguename = models.ForeignKey(League, blank=True, null=True, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.teamname
+
+class Player(models.Model):
+    playerimg = models.ImageField(upload_to='',default='',null=True)
+    name = models.CharField('Name',max_length=300)
+    country = models.ForeignKey(Country, blank=True, null=True, on_delete=models.CASCADE)
+    city = models.CharField('City',max_length=300)
+    teams = models.ForeignKey(Team, blank=True, null=True, on_delete=models.CASCADE)
+    para = models.TextField('Para',default='',null=True)
+    dob = models.CharField('Dob',max_length=300,default='',null=True)
+    mat = models.IntegerField('Mat',max_length=300,default='',null=True)
+    runs= models.IntegerField('runs',max_length=300,default='',null=True)
+    hs = models.IntegerField('Hs',max_length=300,default='',null=True)
+    hcen = models.IntegerField('Hcen',max_length=300,default='',null=True)
+    cen = models.IntegerField('Cen',max_length=300,default='',null=True)
+    wick =models.IntegerField('Wick',max_length=300,default='',null=True)
+    cts =  models.INtergerField('Cts',max_length=300,default='',null=True)
+
+
+    def __str__(self):
+        return self.name
+
+
+class Comment(models.Model): 
+    post = models.ForeignKey(News,on_delete=models.CASCADE,related_name='comments')
+    name = models.CharField(max_length=80) 
+    email = models.EmailField() 
+    body = models.TextField() 
+    created = models.DateTimeField(auto_now_add=True) 
+    updated = models.DateTimeField(auto_now=True) 
+    active = models.BooleanField(default=True) 
+
+    class Meta: 
+        ordering = ('created',) 
+
+    def __str__(self): 
+        return 'Comment by {} on {}'.format(self.name, self.post)
+
+
+
+class City(models.Model):
+    name = models.CharField(max_length=255)
+    state = models.CharField(max_length=255)
+
+    class Meta:
+      verbose_name_plural = "cities"
+
+    def __str__(self):
+        return self.name
+
+
+class Venue(models.Model):
+    name  =  models.CharField('Venue Name',max_length=100,default='',null=True)
+    address = models.CharField('Address',max_length=100,default='',null=True)
+    zip_code = models.CharField('Zip',max_length=100,default='',null=True)
+    phone = models.CharField('Phone',max_length=100,default='',null=True)
+    web = models.URLField('Web Address',default='',null=True)
+    email_address = models.EmailField('Email Address',default='',null=True)
+
+    def __str__(self):
+        return self.name
+
+class Events(models.Model):
+    name = models.CharField('Event Name', max_length=100,default='',null=True)
+    venue = models.ForeignKey(Venue,blank=True,null=True,on_delete=models.CASCADE)
+    event_date = models.DateTimeField('Event Date',default='',null=True)
+    #venue = models.CharField(max_length=120,default='',null=True)
+    manager = models.ForeignKey(User,blank=True,null=True,on_delete=models.SET_NULL)
+    description = models.TextField(blank=True,default='',null=True) #if blank = True that box is not required to fill
+
+    
+    def __str__(self):
+        return self.name

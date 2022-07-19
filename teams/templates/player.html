@@ -1,0 +1,215 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<br><br>
+<style>
+  .whole, .news, h4{
+    margin-left: 200px;
+    margin-right: 200px;
+  }
+  .cb-lst-itm, .cb-bg-white {
+      background: #fff;
+
+  }
+  .cb-col {
+      display: inline-block;
+      box-sizing: border-box;
+      min-height: 1px;
+  }
+  .cb-col-100 {
+      width: 100%;
+  }
+  user agent stylesheet
+  div {
+      display: block;
+  }
+  
+  .cb-col-33 {
+      width: 33%;
+  }
+  .cb-plyr-tbl {
+      margin-top: 30px;
+  }
+
+  .cb-player-bio {
+      line-height: 24px;
+  }
+
+.cb-font-16 {
+    font-size: 16px;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.text-gray {
+    color: #666;
+}
+.cb-font-18 {
+    font-size: 18px;
+}
+h3 {
+    font-size: 18px;
+    line-height: 24px;
+    margin: 0;
+}
+
+.cb-font-40 {
+    font-size: 40px;
+}
+h1 {
+    font-size: 36px;
+    line-height: 42px;
+    margin: 0;
+}
+
+  </style>
+  
+<div class = "whole">  
+  <div class="cb-col cb-col-100 cb-bg-white">
+    <div class="cb-col cb-col-20 cb-col-rt">
+      <img height="200" width="200"  src="{{player.Model_pic.url}}">
+    </div>
+    <div class="cb-col cb-col-80 cb-player-name-wrap">
+      <h1 itemprop="name" class="cb-font-40">{{player.Name}}</h1>
+      <h3 class="cb-font-18 text-gray">{{player.Country}}</h3>
+    </div>
+  </div>
+  
+  
+  
+  
+  <div class="cb-col cb-col-33 text-black"> 
+    <div class="cb-hm-rght"> 
+      <br><div class="cb-font-16 text-bold"> Personal Information</div><br> 
+      <div class="cb-col cb-col-40 text-bold cb-lst-itm-sm">Born:</div> 
+      <div class="cb-col cb-col-60 cb-lst-itm-sm"> {{player.Birthday}} </div><br> 
+      <div class="cb-col cb-col-40 text-bold cb-lst-itm-sm">Birth Place:</div> 
+      <div class="cb-col cb-col-60 cb-lst-itm-sm"> {{player.City}} </div> <br>
+      <div class="cb-col cb-col-40 text-bold cb-lst-itm-sm">Role:</div> 
+      <div class="cb-col cb-col-60 cb-lst-itm-sm"> {{player.Role}} </div> <br>
+      <div class="cb-col cb-col-40 text-bold cb-lst-itm-sm">Batting Style:</div> 
+      <div class="cb-col cb-col-60 cb-lst-itm-sm"> {{player.Batting_style}} </div> <br>
+      <div class="cb-col cb-col-40 text-bold cb-lst-itm-sm">Bowling Style:</div> 
+      <div class="cb-col cb-col-60 cb-lst-itm-sm"> {{player.Bowling_style}} </div> <br> 
+      <div class="cb-col cb-col-40 text-bold cb-lst-itm-sm">Teams:</div> 
+      <div class="cb-col cb-col-60 cb-lst-itm-sm"> {{player.Teams}}</div> 
+    </div>
+  </div>
+  
+  
+  <div class="cb-plyr-tbl">
+    <div class="cb-font-16 text-bold cb-lst-dom">Batting Career Summary</div> 
+    <table class="table cb-col-100 cb-plyr-thead"> 
+      <thead> <tr class="cb-bg-grey cb-font-12"> 
+        <th></th> 
+        <th class="cb-plyr-th text-right" title="Matches Played">M</th> 
+        <th class="text-right" title="No of Runs Scored">Runs</th> 
+        <th class="text-right" title="No of 100s Scored">100</th> 
+        <th class="text-right" title="No of 50s Scored">50</th> 
+      </tr> 
+    </thead> 
+    <tbody> 
+      <tr> 
+        <td class="cb-col-8">
+          <strong>Test</strong>
+        </td> 
+        <td class="cb-plyr-tbody text-right">{{player.Test_Matches}}</td> 
+        <td class="text-right">{{player.Test_Runs}}</td> 
+        <td class="text-right">{{player.Test_50}}</td> 
+        <td class="text-right">{{player.Test_100}}</td> 
+      </tr> 
+      <tr> 
+        <td class="cb-col-8">
+          <strong>ODI</strong>
+        </td> 
+        <td class="cb-plyr-tbody text-right">{{player.Odi_Matches}}</td> 
+        <td class="text-right">{{player.Odi_Runs}}</td> 
+        <td class="text-right">{{player.Odi_50}}</td> 
+        <td class="text-right">{{player.Odi_100}}</td>  
+      </tr> 
+      <tr> 
+        <td class="cb-col-8">
+          <strong>T20I</strong></td> 
+          <td class="cb-plyr-tbody text-right">{{player.T20_Matches}}</td> 
+          <td class="text-right">{{player.T20_Runs}}</td> 
+          <td class="text-right">{{player.T20_50}}</td> 
+          <td class="text-right">{{player.T20_100}}</td> 
+        </tr> 
+        <tr> 
+          <td class="cb-col-8">
+            <strong>IPL</strong>
+          </td> 
+          <td class="cb-plyr-tbody text-right">{{player.Ipl_Matches}}</td> 
+          <td class="text-right">{{player.Ipl_Runs}}</td> 
+          <td class="text-right">{{player.Ipl_50}}</td> 
+          <td class="text-right">{{player.Ipl_100}}</td> 
+        </tr> 
+      </tbody> 
+    </table>
+  </div>
+  
+  
+  <div class="cb-plyr-tbl"> 
+    <div class="cb-font-16 text-bold cb-lst-dom">Bowling Career Summary</div> 
+    <table class="table cb-col-100 cb-plyr-thead"> 
+      <thead> 
+        <tr class="cb-bg-grey cb-font-12"> 
+          <th></th> 
+          <th class="cb-plyr-th text-right" title="Matches Played">M</th> 
+          <th class="text-right" title="No of Runs Conceded">Runs</th> 
+          <th class="text-right" title="Five Wickets in an Innings">5W</th> 
+          <th class="text-right cb-plyr-stump" title="Ten Wickets in an Match">10W</th> 
+        </tr> 
+      </thead> 
+      <tbody> 
+        <tr> 
+          <td class="cb-col-8">
+            <strong>Test</strong>
+          </td> 
+          <td class="cb-plyr-tbody text-right">{{player.Test_Matches}}</td> 
+          <td class="text-right">{{player.Test_Wickets}}</td> 
+          <td class="text-right">{{player.Test_5W}}</td> 
+          <td class="text-right">{{player.Test_10W}}</td> 
+        </tr> 
+        <tr> 
+          <td class="cb-col-8">
+            <strong>ODI</strong>
+          </td> 
+          <td class="cb-plyr-tbody text-right">{{player.Odi_Matches}}</td> 
+          <td class="text-right">{{player.Odi_Wickets}}</td> 
+          <td class="text-right">{{player.Odi_5W}}</td> 
+          <td class="text-right">{{player.Odi_10W}}</td> 
+        </tr> 
+        <tr> 
+          <td class="cb-col-8">
+            <strong>T20I</strong>
+          </td> 
+          <td class="cb-plyr-tbody text-right">{{player.T20_Matches}}</td> 
+          <td class="text-right">{{player.T20_Wickets}}</td> 
+          <td class="text-right">{{player.T20_5W}}</td> 
+          <td class="text-right">{{player.T20_10W}}</td> 
+        </tr> 
+        <tr> 
+          <td class="cb-col-8">
+            <strong>IPL</strong></td> 
+            <td class="cb-plyr-tbody text-right">{{player.Ipl_Matches}}</td> 
+            <td class="text-right">{{player.Ipl_Wickets}}</td> 
+            <td class="text-right">{{player.Ipl_5W}}</td> 
+            <td class="text-right">{{player.Ipl_10W}}</td> 
+          </tr> 
+        </tbody> 
+      </table>
+    </div>
+  </div>
+<h4>Profile</h4>
+
+<div class="news">{{player.Para | safe}}<br><br></div>
+</div>
+
+{% endblock %}
+
+
+
+

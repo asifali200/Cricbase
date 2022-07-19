@@ -1,0 +1,9 @@
+
+    path('league', views.league, name="League"),
+    path('league', views.team, name="Team"),
+    path('player', views.player, name="Player"),
+    path('series', views.series_events, name="series"),
+    path('events', views.all_events,name='list-events'),
+    path('list_venues', views.list_venues,name='list-venues'),#list_venues func
+    path('show_venue/<venue_id>', views.show_venue,name='show-venue'), #show_venue func
+    #path('like/<int:pk>', views.LikeView, name='like_post'),
